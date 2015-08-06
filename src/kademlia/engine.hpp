@@ -107,7 +107,9 @@ public:
             , value_store_()
             , is_connected_()
             , pending_tasks_()
-    { }
+    {
+        enable_log_for("*");
+    }
 
     /**
      *
@@ -134,6 +136,8 @@ public:
             , is_connected_()
             , pending_tasks_()
     {
+        enable_log_for("*");
+
         discover_neighbors( initial_peer );
 
         LOG_DEBUG( engine, this ) << "boostraping using peer '"

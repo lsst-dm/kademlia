@@ -95,3 +95,4 @@ set_target_properties(kademlia_static
     PROPERTIES
         POSITION_INDEPENDENT_CODE ON)
 
+add_definitions(-DKADEMLIA_ENABLE_DEBUG=${KADEMLIA_ENABLE_DEBUG})
