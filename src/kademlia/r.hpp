@@ -142,7 +142,10 @@ public:
     r &
     operator=
         ( r const & other )
-    { *this = r{ other }; }
+    {
+        *this = r{ other };
+        return *this;
+    }
 
     /**
      *  @brief Assignment operator.
@@ -156,6 +159,8 @@ public:
         error_ = other.error_;
 
         if ( other ) construct_value( std::move( other.v() ) );
+
+        return *this;
     }
 
     /**
