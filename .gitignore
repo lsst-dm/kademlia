@@ -2,5 +2,5 @@
 *.swp
 build/*
 .DS_Store
-Debug/*
-Release/*
+/Debug/
+/Release/
