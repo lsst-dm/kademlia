@@ -42,6 +42,10 @@
 #include "kademlia/concurrent_guard.hpp"
 
 namespace kademlia {
+	class status_helper;
+}
+
+namespace kademlia {
 namespace detail {
 
 /**
@@ -157,6 +161,8 @@ public:
 
         io_service_.post( service_stopper );
     }
+
+	friend class kademlia::status_helper;
 
 private:
     ///

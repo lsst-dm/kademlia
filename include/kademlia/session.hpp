@@ -132,6 +132,8 @@ public:
     abort
         ( void );
 
+	friend class status_helper;
+
 private:
     /// Hidden implementation.
     struct impl;

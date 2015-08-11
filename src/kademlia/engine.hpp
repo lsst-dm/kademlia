@@ -59,6 +59,10 @@
 #include "kademlia/tracker.hpp"
 
 namespace kademlia {
+	class status_helper;
+}
+
+namespace kademlia {
 namespace detail {
 
 /**
@@ -502,6 +506,8 @@ private:
             pending_tasks_.pop();
         }
     }
+
+	friend class kademlia::status_helper;
 
 private:
     ///

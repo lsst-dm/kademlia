@@ -40,6 +40,7 @@
 #include <algorithm>
 
 #include <kademlia/detail/cxx11_macros.hpp>
+#include <kademlia/detail/symbol_visibility.hpp>
 
 namespace kademlia {
 namespace detail {
@@ -268,6 +269,7 @@ operator<
 /**
  *
  */
+KADEMLIA_SYMBOL_VISIBILITY
 std::ostream &
 operator<<
     ( std::ostream & out
