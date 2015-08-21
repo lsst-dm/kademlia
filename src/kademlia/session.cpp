@@ -46,6 +46,15 @@ struct session::impl final
                           , listen_on_ipv4
                           , listen_on_ipv6 }
     { }
+    /**
+     *
+     */
+    impl
+        ( endpoint const& listen_on_ipv4
+        , endpoint const& listen_on_ipv6 )
+            : session_impl{ listen_on_ipv4
+                          , listen_on_ipv6 }
+    { }
 };
 
 session::session
@@ -53,6 +62,12 @@ session::session
     , endpoint const& listen_on_ipv4
     , endpoint const& listen_on_ipv6 )
         : impl_{ new impl{ initial_peer, listen_on_ipv4, listen_on_ipv6 } }
+{ }
+
+session::session
+    ( endpoint const& listen_on_ipv4
+    , endpoint const& listen_on_ipv6 )
+        : impl_{ new impl{ listen_on_ipv4, listen_on_ipv6 } }
 { }
 
 session::~session

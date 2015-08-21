@@ -62,8 +62,26 @@ public:
     KADEMLIA_SYMBOL_VISIBILITY
     session
         ( endpoint const& initial_peer
-        , endpoint const& listen_on_ipv4 = endpoint{ "0.0.0.0", DEFAULT_PORT }
-        , endpoint const& listen_on_ipv6 = endpoint{ "::", DEFAULT_PORT } );
+        , endpoint const& listen_on_ipv4
+        , endpoint const& listen_on_ipv6 );
+
+    /**
+     *  @brief Construct a passive session.
+     *  @details This session acts like an active session except it
+     *           doesn't try to discover neighbors. It can be used
+     *           by the first node of a network as no peer is known
+     *           uppon its creation.
+     *
+     *           It doesn't make sense to use this constructor once the
+     *           network has at least one peer.
+     *
+     *  @param listen_on_ipv4 IPv4 listening endpoint.
+     *  @param listen_on_ipv6 IPv6 listening endpoint.
+     */
+    KADEMLIA_SYMBOL_VISIBILITY
+    session
+        ( endpoint const& listen_on_ipv4
+        , endpoint const& listen_on_ipv6 );
 
     /**
      *  @brief Destruct the session.
