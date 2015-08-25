@@ -95,9 +95,11 @@ public:
         ( boost::asio::io_service & io_service
         , endpoint const& ipv4
         , endpoint const& ipv6 )
-            : random_engine_( std::random_device()() )
+            : random_engine_( std::random_device{}() )
             , my_id_( random_engine_ )
-            , network_( io_service, ipv4, ipv6
+            , network_( io_service
+                      , message_socket_type::ipv4( io_service, ipv4 )
+                      , message_socket_type::ipv6( io_service, ipv6 )
                       , std::bind( &engine::handle_new_message
                                  , this
                                  , std::placeholders::_1
@@ -125,7 +127,9 @@ public:
         , endpoint const& ipv6 )
             : random_engine_( std::random_device()() )
             , my_id_( random_engine_ )
-            , network_( io_service, ipv4, ipv6
+            , network_( io_service
+                      , message_socket_type::ipv4( io_service, ipv4 )
+                      , message_socket_type::ipv6( io_service, ipv6 )
                       , std::bind( &engine::handle_new_message
                                  , this
                                  , std::placeholders::_1
@@ -238,7 +242,10 @@ private:
     using pending_task_type = std::function< void ( void ) >;
 
     ///
-    using network_type = network< UnderlyingSocketType >;
+    using message_socket_type = message_socket< UnderlyingSocketType >;
+
+    ///
+    using network_type = network< message_socket_type >;
 
     ///
     using random_engine_type = std::default_random_engine;
