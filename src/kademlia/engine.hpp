@@ -59,7 +59,7 @@
 #include "kademlia/tracker.hpp"
 
 namespace kademlia {
-	class status_helper;
+	class QReplNode;
 }
 
 namespace kademlia {
@@ -514,7 +514,7 @@ private:
         }
     }
 
-	friend class kademlia::status_helper;
+	friend class kademlia::QReplNode;
 
 private:
     ///

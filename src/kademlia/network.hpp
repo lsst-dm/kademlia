@@ -39,7 +39,7 @@
 #include "kademlia/buffer.hpp"
 
 namespace kademlia {
-	class status_helper;
+	class QReplNode;
 }
 
 namespace kademlia {
@@ -170,7 +170,7 @@ private:
         return socket_ipv6_;
     }
 
-	friend class kademlia::status_helper;
+	friend class kademlia::QReplNode;
 
 private:
     ///

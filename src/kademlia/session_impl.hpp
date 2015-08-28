@@ -42,7 +42,7 @@
 #include "kademlia/concurrent_guard.hpp"
 
 namespace kademlia {
-	class status_helper;
+	class QReplNode;
 }
 
 namespace kademlia {
@@ -162,7 +162,7 @@ public:
         io_service_.post( service_stopper );
     }
 
-	friend class kademlia::status_helper;
+	friend class kademlia::QReplNode;
 
 private:
     ///

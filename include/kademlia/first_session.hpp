@@ -105,7 +105,7 @@ public:
     abort
         ( void );
 
-	friend class status_helper;
+	friend class QReplNode;
 
 private:
     /// Hidden implementation.
